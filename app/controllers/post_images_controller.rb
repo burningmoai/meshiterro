@@ -7,7 +7,6 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
     @post_image.save
-    # きっとフラッシュメッセージ
     redirect_to post_images_path
   end
 
@@ -17,6 +16,7 @@ class PostImagesController < ApplicationController
 
   def show
     @post_image = PostImage.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def destroy
